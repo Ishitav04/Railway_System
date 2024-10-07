@@ -1,8 +1,8 @@
-#SQL Mini Projects
+# SQL Mini Projects
 This repository contains a collection of small SQL projects that demonstrate the creation and management of various databases using SQL. Each .sql file contains the necessary SQL commands to create tables, insert data, and perform basic operations related to different management systems.
 
-##Projects Overview
-1. Library Management System
+## Projects Overview
+### 1. Library Management System
 File: Library Management.sql
 
 This project simulates a library management system where you can track:
@@ -15,7 +15,7 @@ CREATE TABLE, INSERT INTO, and SELECT
 Foreign key relationships to link books and authors
 Querying loans based on dates and borrower information
 
-## 2. Railway System Management
+### 2. Railway System Management
 File: Railway system.sql
 
 This project models a simple railway management system where you can:
@@ -29,7 +29,7 @@ Joining data between trains and passenger bookings
 Use of primary and foreign keys to enforce relationships
 
 
-##3. Sales and Customer Tracking System
+### 3. Sales and Customer Tracking System
 File: sales and customer.sql
 
 This project focuses on managing:
@@ -43,7 +43,7 @@ Aggregate queries to calculate total sales or quantity sold
 Tracking customer purchases over time
 
 
-##4. Student Management System
+### 4. Student Management System
 File: student Management system.sql
 
 This project models a basic student management system where:
