@@ -1,96 +1,43 @@
-DROP SCHEMA IF EXISTS library_management CASCADE;
-CREATE SCHEMA IF NOT EXISTS library_management;
-
--- User Login Table
-DROP TABLE IF EXISTS library_management.user_login;
-CREATE TABLE library_management.user_login (
-	user_id TEXT PRIMARY KEY,
-	user_password TEXT,
-	first_name TEXT,
-	last_name TEXT,
-	sign_up_on DATE,
-	email_id TEXT
+-- Create a table for authors
+CREATE TABLE Authors (
+    author_id INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50)
 );
 
--- Publisher Table
-DROP TABLE IF EXISTS library_management.publisher;
-CREATE TABLE library_management.publisher (
-	publisher_id TEXT PRIMARY KEY,
-	publisher TEXT,
-	distributor TEXT,
-	releases_count INT,
-	last_release DATE
+-- Create a table for books
+CREATE TABLE Books (
+    book_id INT PRIMARY KEY,
+    title VARCHAR(100),
+    author_id INT,
+    publish_year INT,
+    FOREIGN KEY (author_id) REFERENCES Authors(author_id)
 );
 
--- Author Table
-DROP TABLE IF EXISTS library_management.author;
-CREATE TABLE library_management.author (
-	author_id TEXT PRIMARY KEY,
-	first_name TEXT,
-	last_name TEXT,
-	publications_count INT
+-- Create a table for book loans
+CREATE TABLE BookLoans (
+    loan_id INT PRIMARY KEY,
+    book_id INT,
+    loan_date DATE,
+    return_date DATE,
+    borrower_name VARCHAR(50),
+    FOREIGN KEY (book_id) REFERENCES Books(book_id)
 );
 
--- Books Table
-DROP TABLE IF EXISTS library_management.books;
-CREATE TABLE library_management.books (
-	book_id TEXT PRIMARY KEY,
-	book_code TEXT,
-	book_name TEXT,
-	author_id TEXT REFERENCES library_management.author (author_id),
-	publisher_id TEXT REFERENCES library_management.publisher (publisher_id),
-	book_version TEXT,
-	release_date DATE,
-	available_from DATE,
-	is_available BOOLEAN
-);
+-- Insert sample data into Authors table
+INSERT INTO Authors (author_id, first_name, last_name)
+VALUES
+(1, 'George', 'Orwell'),
+(2, 'Jane', 'Austen');
 
--- Staff Table
-DROP TABLE IF EXISTS library_management.staff;
-CREATE TABLE library_management.staff (
-	staff_id TEXT PRIMARY KEY,
-	first_name TEXT,
-	last_name TEXT,
-	staff_role TEXT,
-	start_date DATE,
-	last_date DATE,
-	is_active BOOLEAN,
-	work_shift_start TIME,
-	work_shift_end TIME
-);
+-- Insert sample data into Books table
+INSERT INTO Books (book_id, title, author_id, publish_year)
+VALUES
+(1, '1984', 1, 1949),
+(2, 'Pride and Prejudice', 2, 1813);
 
--- Readers Table
-DROP TABLE IF EXISTS library_management.readers;
-CREATE TABLE library_management.readers (
-	reader_id TEXT PRIMARY KEY,
-	first_name TEXT,
-	last_name TEXT,
-	registered_on DATE,
-	books_issued_total INT,
-	books_issued_current INT,
-	is_issued BOOLEAN,
-	last_issue_date DATE,
-	total_fine FLOAT,
-	current_fine FLOAT
-);
-
--- Books Issue Table
-DROP TABLE IF EXISTS library_management.books_issue;
-CREATE TABLE library_management.books_issue (
-	issue_id SERIAL PRIMARY KEY,
-	book_id TEXT REFERENCES library_management.books (book_id),
-	issued_to TEXT REFERENCES library_management.readers (reader_id),
-	issued_on DATE,
-	return_on DATE,
-	current_fine FLOAT,
-	fine_paid BOOLEAN,
-	payment_transaction_id TEXT
-);
-
--- Settings Table
-DROP TABLE IF EXISTS library_management.settings;
-CREATE TABLE library_management.settings (
-	book_issue_count_per_reader INT,
-	fine_per_day FLOAT,
-	book_return_in_days INT
-);
+-- Insert sample data into BookLoans table
+INSERT INTO BookLoans (loan_id, book_id, loan_date, return_date, borrower_name)
+VALUES
+(1, 1, '2024-01-15', '2024-01-25', 'John Doe'),
+(2, 2, '2024-01-18', '2024-01-28', 'Jane Doe');
