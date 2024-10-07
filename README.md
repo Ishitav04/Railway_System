@@ -60,3 +60,36 @@ Download the desired .sql file.
 Execute the SQL script in any SQL database management system (e.g., MySQL, PostgreSQL, or SQLite).
 Review the database schema and sample data created by the script.
 Run queries to test the functionality of the system.
+
+### E-Commerce Order Management System
+
+This project is a simple e-commerce order management system built using SQL. It allows you to manage customers, products, orders, and shipping details. The database schema is designed to simulate an online store where customers can place orders, and orders can contain multiple products.
+
+#### Database Schema
+The system is made up of the following tables:
+1. **Customers**: Stores customer details.
+2. **Products**: Stores available products with pricing and stock.
+3. **Orders**: Stores order details, linked to customers.
+4. **Order_Items**: Manages the products included in each order.
+5. **Shipping**: Tracks shipment information for each order.
+
+#### Features
+- Multiple orders per customer.
+- Ability to track product stock and adjust it based on purchases.
+- Order statuses (e.g., pending, shipped, delivered).
+- Shipment tracking with delivery details.
+
+#### How to Use
+1. Download the `.sql` file.
+2. Execute the script in your database management system (e.g., MySQL, PostgreSQL, SQLite).
+3. Insert sample data for testing or create your own test data.
+4. Run queries to manage customers, view orders, and track shipments.
+
+#### Example Queries
+- View all orders placed by a customer.
+- Check products in a specific order.
+- Track the shipping status of an order.
+
+## License
+Feel free to use or modify this project for educational or personal purposes.
+
