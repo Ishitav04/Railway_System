@@ -61,7 +61,7 @@ Execute the SQL script in any SQL database management system (e.g., MySQL, Postg
 Review the database schema and sample data created by the script.
 Run queries to test the functionality of the system.
 
-### E-Commerce Order Management System
+### 5.E-Commerce Order Management System
 
 This project is a simple e-commerce order management system built using SQL. It allows you to manage customers, products, orders, and shipping details. The database schema is designed to simulate an online store where customers can place orders, and orders can contain multiple products.
 
