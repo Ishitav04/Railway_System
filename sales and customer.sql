@@ -41,3 +41,4 @@ INSERT INTO Sales (sale_id, customer_id, product_id, sale_date, quantity)
 VALUES
 (1, 1, 1, '2024-02-01', 1),
 (2, 2, 2, '2024-02-03', 2);
+
